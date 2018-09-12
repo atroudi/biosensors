@@ -1,7 +1,7 @@
 import os
 
 from .common import *
-
+import django_heroku
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '))a)f_b#(lo_v@cov$o)g*r8a$7%#51+*)&ybpy3!qz-8e__e1'
 
@@ -27,6 +27,10 @@ STATICFILES_DIRS.append(
 )
 
 STATIC_ROOT = BASE_DIR
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
+
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 # ALLOWED_HOSTS = ['react-django.herokuapp.com', '127.0.0.1:8000']
