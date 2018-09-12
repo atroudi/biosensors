@@ -25,3 +25,7 @@ INSTALLED_APPS += (
 STATICFILES_DIRS.append(
     os.path.join(BASE_DIR, os.pardir, 'frontend', 'build'),
 )
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+ALLOWED_HOSTS = ['react-django.herokuapp.com', '127.0.0.1:8000']
