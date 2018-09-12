@@ -2,6 +2,7 @@ import os
 
 from .common import *
 import django_heroku
+import dj_database_url
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '))a)f_b#(lo_v@cov$o)g*r8a$7%#51+*)&ybpy3!qz-8e__e1'
 
@@ -11,7 +12,7 @@ DEBUG = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'USER': 'migiwara',
+        # 'USER': 'migiwara',
         'NAME': 'postgresql-cubic-41504',
     }
 }
@@ -26,10 +27,19 @@ STATICFILES_DIRS.append(
     os.path.join(BASE_DIR, os.pardir, 'frontend', 'build'),
 )
 
-STATIC_ROOT = BASE_DIR
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# STATIC_URL = '/static/'
+
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# WHITENOISE_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+django_heroku.settings(locals())
+# STATIC_ROOT = BASE_DIR
 
 # Activate Django-Heroku.
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
 
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
