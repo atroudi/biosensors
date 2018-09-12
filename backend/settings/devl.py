@@ -12,7 +12,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'USER': 'migiwara',
-        'NAME': 'BiosensorsServer2',
+        'NAME': 'postgresql-cubic-41504',
     }
 }
 
